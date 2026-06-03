@@ -5,13 +5,21 @@ df = pd.read_csv("RepAnalista\\distrisueldo.csv", names=["mes","ingresos"])
 
 df2 = pd.read_csv("RepAnalista\\gastosmes.csv", names=["mes","gastos"])
 
+# def ahorros_totales():
+#     acum = 0
+#     for i in range(len(df)):
+#         aux = df.loc[i,"ingresos"]
+#         if aux > 0:
+#             acum += aux * 0.3
+#     return acum 
+
 def ahorros_totales():
-    acum = 0
-    for i in range(len(df)):
-        aux = df.loc[i,"ingresos"]
-        if aux > 0:
-            acum += aux * 0.3
-    return acum 
+    return (df[df["ingresos"]>0]["ingresos"]*0.3).sum()
+
+# De izquierda a derecha, lo que sucede aquí:
+# .sum() suma todos los elementos de una lista/tupla
+# Dicha lista se crea con df[df["ingresos"]>0]["ingresos"]*0.3]
+# Donde se multiplican por 0.3 todos los elementos de la fila "ingresos" de df con las siguientes condiciones: el componente de dicha fila que sea mayor a 0.
 
 def ingresos_totales():
     return df[df["ingresos"]>0]["ingresos"].sum()
