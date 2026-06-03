@@ -1,9 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("archivostexto\\distrisueldo.csv", names=["mes","ingresos"])
+df = pd.read_csv("RepAnalista\\distrisueldo.csv", names=["mes","ingresos"])
 
-df2 = pd.read_csv("archivostexto\\gastosmes.csv", names=["mes","gastos"])
+df2 = pd.read_csv("RepAnalista\\gastosmes.csv", names=["mes","gastos"])
 
 def ahorros_totales():
     acum = 0
